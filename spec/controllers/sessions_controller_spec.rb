@@ -30,6 +30,20 @@ describe SessionsController do
         User.stub(:find).with(@mock_user.id).and_return(@mock_user)
         controller.current_user.should eq(@mock_user)
       end
+
+      it "provides is_admin? helper as true for admin user" do
+        @mock_user.stub(:is_admin?).and_return(true)
+        post :create, :stuff => 'whatever'
+        User.stub(:find).with(@mock_user.id).and_return(@mock_user)
+        controller.is_admin?.should be_true
+      end
+
+      it "provides is_admin? helper as false for regular user" do
+        @mock_user.stub(:is_admin?).and_return(false)
+        post :create, :stuff => 'whatever'
+        User.stub(:find).with(@mock_user.id).and_return(@mock_user)
+        controller.is_admin?.should be_false
+      end
     end
 
     describe "with invalid params" do
