@@ -1,4 +1,14 @@
 UpdateAlerter::Application.routes.draw do
+  get "nothing/index"
+  root :to => "nothing#index"
+
+  get "register" => "users#new", :as => "register"
+  resources :users
+
+  get "login" => "sessions#new", :as => "login"
+  delete "logout" => "sessions#destroy", :as => "logout"
+  resources :sessions
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

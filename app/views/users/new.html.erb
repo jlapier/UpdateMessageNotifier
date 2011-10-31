@@ -1,0 +1,9 @@
+<h1>Registration</h1>
+
+<%= simple_form_for(@user, :html => { :class => "nice" }) do |f| %>
+  <%= f.input :email %>
+  <%= f.input :password %>
+  <%= f.input :password_confirmation %>
+  <%= f.button :submit, :class => "nice blue button round"  %>
+<% end %>
+

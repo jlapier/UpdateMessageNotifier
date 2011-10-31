@@ -1,0 +1,14 @@
+/* in rails, we use "notice" and "alert", where foundation only has "success" and "error" */
+.alert-box.notice {
+  background-color: #7FAE00;
+  color: #FFFFFF;
+  text-shadow: 0 -1px rgba(0, 0, 0, 0.3);
+}
+
+.alert-box.alert {
+  background-color: #C00000;
+  color: #FFFFFF;
+  text-shadow: 0 -1px rgba(0, 0, 0, 0.3);
+}
+
+.notice a.close { top: 4px; }
