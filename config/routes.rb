@@ -1,4 +1,6 @@
 UpdateAlerter::Application.routes.draw do
+  resources :update_messages
+
   get "nothing/index"
   root :to => "nothing#index"
 
