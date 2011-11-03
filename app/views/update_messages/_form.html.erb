@@ -1,1 +1,6 @@
-<%# TODO: make form %>
+<%= simple_form_for(@update_message, :html => { :class => "nice" }) do |f| %>
+  <%= f.input :subject %>
+  <%= f.input :body %>
+  <%= f.input :published_on, :as => :string, :input_html => { :class => "datepicker" } %>
+  <%= f.submit 'Save Message', :class => "nice blue button round"  %>
+<% end %>

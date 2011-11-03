@@ -1,7 +1,28 @@
 <h1>Recent Updates</h1>
 
+<% if @update_messages.empty? %>
+  <p><em>There are no messages at this time.</em></p>
+<% end %>
+
+<ul class="message_list">
 <% @update_messages.each do |update_message| %>
-  <p>
-    <%= update_message.subject %>
-  </p>
+  <%= render update_message %>
 <% end -%>
+</ul>
+
+<% unless @unpublished_messages.blank? %>
+  <br/>
+  <h2>Unpublished Messages</h2>
+  <ul class="message_list">
+  <% @unpublished_messages.each do |update_message| %>
+    <%= render update_message %>
+  <% end -%>
+  </ul>
+<% end -%>
+
+<% if user_is_admin? %>
+  <br/>
+  <p><%= link_to "create new message", new_update_message_path, 
+    :class => "button small white nice round" %></p>
+<% end -%>
+

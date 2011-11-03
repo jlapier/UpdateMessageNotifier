@@ -96,6 +96,7 @@ describe UpdateMessagesController do
     describe "GET new" do
       it "renders the new template" do
         get :new
+        assigns(:update_message).should_not be_nil
         response.should render_template('new')
       end
     end
@@ -115,7 +116,7 @@ describe UpdateMessagesController do
     end
     describe "POST create" do
       it "redirects to show" do
-        @mock_um = mock_model(UpdateMessage, :save => true)
+        @mock_um = mock_model(UpdateMessage, :user= => nil, :save => true)
         UpdateMessage.stub(:new).and_return(@mock_um)
         post :create, :update_message => { }
         response.should redirect_to(@mock_um)

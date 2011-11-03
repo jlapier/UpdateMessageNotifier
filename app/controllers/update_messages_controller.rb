@@ -3,6 +3,9 @@ class UpdateMessagesController < ApplicationController
 
   def index
     @update_messages = UpdateMessage.published.limit(10)
+    if user_is_admin?
+      @unpublished_messages = UpdateMessage.unpublished
+    end
   end
 
   def show
@@ -13,6 +16,7 @@ class UpdateMessagesController < ApplicationController
   end
 
   def new
+    @update_message = UpdateMessage.new
   end
 
   def edit
@@ -21,10 +25,12 @@ class UpdateMessagesController < ApplicationController
 
   def create
     @update_message = UpdateMessage.new(params[:update_message])
+    @update_message.user = current_user 
     if @update_message.save
       flash[:notice] = "Message created!"
       redirect_to @update_message
     else
+      flash.now.alert = "Oops, something went wrong: #{@update_message.errors.full_messages.join('; ')}"
       render 'new'
     end
   end

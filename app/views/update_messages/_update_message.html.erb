@@ -1,0 +1,18 @@
+<li>
+  <div class="date">
+    <%= update_message.published_on ? update_message.published_on.strftime('%B %d, %Y') : "not yet published" %>
+  </div>
+
+  <div class="subject">
+    <%= link_to update_message.subject, update_message %>
+  </div>
+
+  <% if user_is_admin? %>
+    <div class="admin_links">
+      <%= link_to "edit", edit_update_message_path(update_message) %>
+      |
+      <%= link_to "delete", update_message, :method => :delete,
+            :confirm => "Really delete this message forever?" %>
+    </div>
+  <% end %>
+</li>

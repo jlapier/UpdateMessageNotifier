@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
     current_user and current_user.is_admin?
   end
 
-  helper_method :current_user
+  helper_method :current_user, :user_is_admin?
 
   def require_admin
     unless user_is_admin?

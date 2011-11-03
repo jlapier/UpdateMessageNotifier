@@ -8,8 +8,9 @@ gem 'rails', '3.1.1'
 gem 'sqlite3'
 
 gem 'json'
-gem 'simple_form'
-gem 'zurb-foundation'
+gem 'simple_form'       # form builder
+gem 'zurb-foundation'   # CSS framework
+gem 'formatize'         # text helpers textilize, markdown
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -28,13 +29,4 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'rcov'
 end
-
-# Use unicorn as the web server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'ruby-debug'
 

@@ -1,0 +1,34 @@
+/* in rails, we use "notice" and "alert", where foundation only has "success" and "error" */
+.alert-box.notice {
+  background-color: #7FAE00;
+  color: #FFFFFF;
+  text-shadow: 0 -1px rgba(0, 0, 0, 0.3);
+}
+
+.alert-box.alert {
+  background-color: #C00000;
+  color: #FFFFFF;
+  text-shadow: 0 -1px rgba(0, 0, 0, 0.3);
+}
+
+.notice a.close { top: 4px; }
+
+.alert-box { margin: 10px 0; }
+
+textarea { height: 100px; }
+
+h1 { font-size: 3.0em; margin: 16px 0; }
+span.hint { font-size: 0.9em; color: #999; margin-left: 8px; }
+
+div.update_message_display { padding: 12px 0 24px; }
+
+ul.message_list { 
+  width: 530px;
+  li:hover { background: #F9F9F9; }
+  div { 
+    display: inline-block; 
+  }
+  div.date { width: 120px; }
+  div.subject { width: 300px; font-weight: bold; }
+  div.admin_links { background: #EEE; width: 100px; text-align:center; }
+}

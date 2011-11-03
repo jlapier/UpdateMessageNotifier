@@ -1,5 +1,23 @@
 <h1>Update: <%= @update_message.subject %></h1>
 
-<%= @update_message.created_at %>
+<% if @update_message.published_on %>
+  <h3><%= @update_message.published_on.strftime('%B %d, %Y') %></h3>
+<% else %>
+  <p><em>not yet published</em></p>
+<% end %>
 
-<%= @update_message.body %>
+<div class="update_message_display">
+  <%= textilize @update_message.body %>
+</div>
+
+<% if user_is_admin? %>
+<p>
+  <%= link_to "edit this message", edit_update_message_path(@update_message),
+      :class => "button small white nice round" %>
+
+  <%= link_to "delete this message", @update_message, :method => :delete,
+      :class => "button small white nice round", 
+      :confirm => "Really delete this message forever?" %>
+</p>      
+<% end %>
+
