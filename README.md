@@ -5,6 +5,7 @@ This is just a test application to demonstrate how one could create an alert
 system for notifying the users of new features.
 
 Uses:
+
 * Rails 3.1
 * Rspec
 * Authentication using Rails 3.1 has_secure_password feature
