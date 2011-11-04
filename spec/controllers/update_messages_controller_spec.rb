@@ -81,6 +81,7 @@ describe UpdateMessagesController do
       describe "when unpublished message" do
         before(:each) do
           @mock_um = mock_model(UpdateMessage, :published_on => nil)
+          @admin.stub(:update_last_read_message).and_return(true)
           UpdateMessage.stub(:find).and_return(@mock_um)
         end
         it "gets the message" do

@@ -13,6 +13,13 @@
 <div class="container">
   <div class="row">
     <div class="eight columns">
+      <% if new_update_for_user %>
+        <div class="new_update_message">
+          News flash: <%= link_to new_update_for_user.subject, new_update_for_user %>
+          (<%= new_update_for_user.published_on.strftime('%m/%d') %>)
+        </div>
+      <% end %>
+
       <% flash.each do |name, msg| %>
         <div id="flash_<%=name%>" class="alert-box <%=name%>">
           <%= msg %>

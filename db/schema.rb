@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111031222958) do
+ActiveRecord::Schema.define(:version => 20111103235608) do
 
   create_table "update_messages", :force => true do |t|
     t.string   "subject"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(:version => 20111031222958) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "is_admin"
+    t.integer  "last_read_message_id"
   end
 
 end

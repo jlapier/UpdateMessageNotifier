@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  helper :application
+
   protect_from_forgery
 
   def current_user
@@ -9,7 +11,11 @@ class ApplicationController < ActionController::Base
     current_user and current_user.is_admin?
   end
 
-  helper_method :current_user, :user_is_admin?
+  def most_recent_update
+    @most_recent_update ||= UpdateMessage.published.first
+  end
+
+  helper_method :current_user, :user_is_admin?, :most_recent_update
 
   def require_admin
     unless user_is_admin?

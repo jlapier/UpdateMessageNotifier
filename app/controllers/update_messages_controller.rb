@@ -10,7 +10,11 @@ class UpdateMessagesController < ApplicationController
 
   def show
     @update_message = UpdateMessage.find(params[:id])
-    unless @update_message.published_on or user_is_admin?
+    if @update_message.published_on or user_is_admin?
+      if current_user
+        current_user.update_last_read_message(@update_message)
+      end
+    else
       redirect_to update_messages_url
     end
   end
